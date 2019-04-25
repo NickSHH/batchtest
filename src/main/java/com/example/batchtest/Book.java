@@ -30,8 +30,8 @@ public class Book {
     @Column(name = "LANGUAGE")
     private String language;
 
-    @Column(name = "ISBN_10")
-    private String isbn10;
+    @Column(name = "ISBN_13", length = 13)
+    private String isbn13;
 
     @Column(name = "DESCRIPTION")
     private String description;

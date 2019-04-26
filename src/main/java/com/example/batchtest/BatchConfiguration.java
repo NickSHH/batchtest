@@ -60,6 +60,8 @@ public class BatchConfiguration {
                 .listener(readListener)
                 .listener(processListener)
                 .listener(writeListener)
+                .allowStartIfComplete(true)
+                .startLimit(3)
                 .build();
     }
 

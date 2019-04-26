@@ -11,7 +11,7 @@ public class BookItemProcessor implements ItemProcessor<Book, Book> {
     @Override
     public Book process(Book item){
         if (null != item) {
-            log.info(item.toString());
+            item.setDescription("already pass through the process");
         } else {
             log.info("book is null");
         }

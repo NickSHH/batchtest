@@ -18,7 +18,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 
-import java.util.List;
 
 @EnableBatchProcessing
 @Configuration
@@ -87,6 +86,18 @@ public class BatchConfiguration {
         return list -> {
             log.info("write dataList : " + list);
             bookJpa.saveAll(list);
+        };
+    }
+
+    @Bean(value = "itemProcessor")
+    public ItemProcessor<Book, Book> processor() {
+        return item -> {
+            if (null != item) {
+                item.setDescription("already pass through the process");
+            } else {
+                log.info("book is null");
+            }
+            return item;
         };
     }
 }
